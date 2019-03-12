@@ -6,14 +6,14 @@
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous">
 
 {{ $printStyle := resources.Get "scss/print.scss" | toCSS $options | fingerprint }}
-<link rel="stylesheet" href="{{ $printStyle.RelPermalink }}" integrity="{{ $printStyle.Data.Integrity }}" crossorigin="anonymous" media="print">
+<link rel="stylesheet" href="{{ $printStyle.RelPermalink }}" media="print">
 
 {{ with .Site.Params.toc }}
 {{ if eq . "hugo" }}
 {{ $hugoToc := resources.Get "scss/hugo-toc.scss" | toCSS $options | fingerprint }}
-<link rel="stylesheet" href="{{ $hugoToc.RelPermalink }}" integrity="{{ $hugoToc.Data.Integrity }} crossorigin="anonymous"">
+<link rel="stylesheet" href="{{ $hugoToc.RelPermalink }}" integrity="{{ $hugoToc.Data.Integrity }}" crossorigin="anonymous">
 {{ else if eq . "tocbot"}}
 {{ $tocbot := resources.Get "scss/tocbot.scss" | toCSS $options | fingerprint }}
-<link rel="stylesheet" href="{{ $tocbot.RelPermalink }}" integrity="{{ $tocbot.Data.Integrity }} crossorigin="anonymous"">
+<link rel="stylesheet" href="{{ $tocbot.RelPermalink }}" integrity="{{ $tocbot.Data.Integrity }}" crossorigin="anonymous">
 {{ end }}
 {{ end }}
